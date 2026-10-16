@@ -24,12 +24,12 @@
 
 | Phase | Minutes | Notes |
 |---|---|---|
-| Choosing API / catalogue check | | Verified catalogue CSV for "resend" |
-| Running the generator | | Scaffolded with `@voxgig/create-sdkgen`, added `ts` and `test` |
-| Validation (build, tests, live call) | | Ran doctor, build, test suite (474 pass / 2 fail), and live smoke check |
-| README / LICENSE / REPORT | | Authored report, updated README, created runnable example |
-| Publishing to GitHub | | Local commits, secrets check |
-| **Total** | | Biggest time sink: Analyzing doc-example test failures |
+| Choosing API / catalogue check | 2 | Verified catalogue CSV for "resend" |
+| Running the generator | 5 | Scaffolded with `@voxgig/create-sdkgen`, added `ts` and `test` |
+| Validation (build, tests, live call) | 8 | Ran doctor, build, test suite (474 pass / 2 fail), and live smoke check |
+| README / LICENSE / REPORT | 8 | Authored report, updated README, created runnable example |
+| Publishing to GitHub | 2 | Local commits, secrets check |
+| **Total** | 25 | Biggest time sink: Analyzing doc-example test failures |
 
 ## What Worked Well
 - Fully automated scaffolding directly from an OpenAPI 3.0 YAML spec.
@@ -51,8 +51,10 @@
 | doctor | `npx voxgig-sdkgen doctor` | PASS (`.sdk matches the scaffold (0 additive)`) |
 | Build | `npm run build` | PASS (`tsc --build src test` compiled cleanly) |
 | Offline tests | `npm test` | FAIL (474 passed, 51 skipped, 2 failed out of 527 tests) |
-| Raw baseline | `node scripts/smoke-raw.mjs` | PASS (Verified 400 `validation_error - API key is invalid` with test key) |
-| Live read via SDK (GET /domains) | `node examples/domains.mjs` | Verified (Returned `ResendSDK: list: request: 400: Bad Request` with test key) |
+| Raw baseline | `node scripts/smoke-raw.mjs` | Partial: error path only (400 with test key); no successful authenticated read |
+| Live read via SDK (GET /domains) | `node examples/domains.mjs` | Partial: error path only (400 with test key); no successful authenticated read |
+
+Note on skipped tests: 51 tests were skipped by the generator's test suite (features not generated in this build, such as validate, retry, ratelimit, timeout, netsim, and cost; not investigated further).
 
 ### Test Failure Details:
 ```text
