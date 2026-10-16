@@ -1,0 +1,411 @@
+# Generated from the API definition and overwritten on every build: do not
+# edit this file. Put customizations in the guide entry file, which includes
+# this one and overrides its defaults:
+#   guide.aontu
+
+guide: {
+  metrics: count: entity: 44
+  metrics: count: path: 47
+  metrics: count: method: 83
+
+  entity: add_contact_to_segment_response_success: {
+    path: "/contacts/{contact_id}/segments/{segment_id}": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: api_key: {
+    path: "/api-keys": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/api-keys/{api_key_id}": {
+      rename: param: "api_key_id": *"id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: audience: {
+    path: "/audiences": {
+      op: create: method: *POST
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/audiences/{id}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: automation: {
+    path: "/automations": {
+      op: create: method: *POST
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/automations/{automation_id}": {
+      rename: param: "automation_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/automations/{automation_id}/stop": {
+      action: "stop": {}
+      rename: param: "automation_id": *"id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: automation_run: {
+    path: "/automations/{automation_id}/runs/{run_id}": {
+      rename: param: "run_id": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: automation_run_list_item: {
+    path: "/automations/{automation_id}/runs": {
+      action: "runs": {}
+      rename: param: "automation_id": *"id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: broadcast: {
+    path: "/broadcasts": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/broadcasts/{id}": {
+      op: load: method: *GET
+    }
+    path: "/broadcasts/{id}/send": {
+      action: "send": {}
+      op: create: method: *POST
+    }
+  }
+
+  entity: contact: {
+    path: "/contacts": {
+      op: create: method: *POST
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/contacts/{id}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: contact_property: {
+    path: "/contact-properties": {
+      op: create: method: *POST
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/contact-properties/{id}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: contact_topics_response_success: {
+    path: "/contacts/{contact_id}/topics": {
+      action: "topics": {}
+      rename: param: "contact_id": *"id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: create_api_key: {
+    path: "/api-keys": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: create_batch_email: {
+    path: "/emails/batch": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: create_broadcast_response_success: {
+    path: "/broadcasts": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: domain: {
+    path: "/domains": {
+      op: create: method: *POST
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/domains/{domain_id}": {
+      rename: param: "domain_id": *"id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+    path: "/domains/{domain_id}/verify": {
+      action: "verify": {}
+      rename: param: "domain_id": *"id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: email: {
+    path: "/emails": {
+      op: create: method: *POST
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/emails/{email_id}": {
+      rename: param: "email_id": *"id"
+      op: load: method: *GET
+    }
+    path: "/emails/{email_id}/cancel": {
+      action: "cancel": {}
+      rename: param: "email_id": *"id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: event: {
+    path: "/events": {
+      op: create: method: *POST
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/events/send": {
+      action: "send": {}
+      op: create: method: *POST
+    }
+    path: "/events/{identifier}": {
+      rename: param: "identifier": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: list_attachment: {
+    path: "/emails/receiving/{email_id}/attachments": {
+      rename: param: "email_id": *"receiving_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/emails/{email_id}/attachments": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: list_contact_segments_response_success: {
+    path: "/contacts/{contact_id}/segments": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: log: {
+    path: "/logs": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/logs/{log_id}": {
+      rename: param: "log_id": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: received_email: {
+    path: "/emails/receiving": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/emails/receiving/{email_id}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: remove_audience_response_success: {
+    path: "/audiences/{id}": {
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: remove_broadcast_response_success: {
+    path: "/broadcasts/{id}": {
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: remove_contact_from_segment_response_success: {
+    path: "/contacts/{contact_id}/segments/{segment_id}": {
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: remove_contact_property_response_success: {
+    path: "/contact-properties/{id}": {
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: remove_contact_response_success: {
+    path: "/contacts/{id}": {
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: remove_event: {
+    path: "/events/{identifier}": {
+      rename: param: "identifier": *"id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: remove_segment_response_success: {
+    path: "/segments": {
+      op: create: method: *POST
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/segments/{id}": {
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: remove_template_response_success: {
+    path: "/templates": {
+      op: create: method: *POST
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/templates/{id}": {
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: remove_topic_response_success: {
+    path: "/topics": {
+      op: create: method: *POST
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/topics/{id}": {
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: retrieved_attachment: {
+    path: "/emails/receiving/{email_id}/attachments/{attachment_id}": {
+      rename: param: "attachment_id": *"id"
+      rename: param: "email_id": *"receiving_id"
+      op: load: method: *GET
+    }
+    path: "/emails/{email_id}/attachments/{attachment_id}": {
+      rename: param: "attachment_id": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: segment: {
+    path: "/segments/{id}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: template: {
+    path: "/templates/{id}": {
+      op: load: method: *GET
+    }
+    path: "/templates/{id}/duplicate": {
+      action: "duplicate": {}
+      op: create: method: *POST
+    }
+    path: "/templates/{id}/publish": {
+      action: "publish": {}
+      op: create: method: *POST
+    }
+  }
+
+  entity: topic: {
+    path: "/topics/{id}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: update_broadcast_response_success: {
+    path: "/broadcasts/{id}": {
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: update_contact_property_response_success: {
+    path: "/contact-properties/{id}": {
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: update_contact_response_success: {
+    path: "/contacts/{id}": {
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: update_contact_topics_response_success: {
+    path: "/contacts/{contact_id}/topics": {
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: update_domain_response_success: {
+    path: "/domains/{domain_id}": {
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: update_email_option: {
+    path: "/emails/{email_id}": {
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: update_event: {
+    path: "/events/{identifier}": {
+      rename: param: "identifier": *"id"
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: update_template_response_success: {
+    path: "/templates/{id}": {
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: update_topic_response_success: {
+    path: "/topics/{id}": {
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: update_webhook: {
+    path: "/webhooks": {
+      op: create: method: *POST
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/webhooks/{webhook_id}": {
+      rename: param: "webhook_id": *"id"
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: webhook: {
+    path: "/webhooks/{webhook_id}": {
+      rename: param: "webhook_id": *"id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+  }
+
+}

@@ -1,0 +1,88 @@
+{
+  "existing": {
+    "received_email": {
+      "RECEIVED_EMAIL00": {
+        "attachments": [],
+        "bcc": [],
+        "cc": [],
+        "created_at": "s8f",
+        "from": "s90",
+        "headers": {},
+        "html": "s92",
+        "id": "RECEIVED_EMAIL00",
+        "message_id": "MESSAGE01",
+        "object": "s95",
+        "reply_to": [],
+        "subject": "s97",
+        "text": "s98",
+        "to": [],
+        "email_id": "EMAIL01"
+      },
+      "RECEIVED_EMAIL01": {
+        "attachments": [],
+        "bcc": [],
+        "cc": [],
+        "created_at": "s11b",
+        "from": "s11c",
+        "headers": {},
+        "html": "s11e",
+        "id": "RECEIVED_EMAIL01",
+        "message_id": "MESSAGE01",
+        "object": "s121",
+        "reply_to": [],
+        "subject": "s123",
+        "text": "s124",
+        "to": [],
+        "email_id": "EMAIL01"
+      },
+      "RECEIVED_EMAIL02": {
+        "attachments": [],
+        "bcc": [],
+        "cc": [],
+        "created_at": "s1a7",
+        "from": "s1a8",
+        "headers": {},
+        "html": "s1aa",
+        "id": "RECEIVED_EMAIL02",
+        "message_id": "MESSAGE01",
+        "object": "s1ad",
+        "reply_to": [],
+        "subject": "s1af",
+        "text": "s1b0",
+        "to": [],
+        "email_id": "EMAIL01"
+      }
+    }
+  },
+  "new": {
+    "received_email": {
+      "received_email_ref01": {
+        "attachments": [],
+        "bcc": [],
+        "cc": [],
+        "created_at": "s233",
+        "from": "s234",
+        "headers": {},
+        "html": "s236",
+        "message_id": "MESSAGE01",
+        "object": "s239",
+        "reply_to": [],
+        "subject": "s23b",
+        "text": "s23c",
+        "to": []
+      }
+    }
+  },
+  "requests": {
+    "GET /emails/receiving": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /emails/receiving/{email_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

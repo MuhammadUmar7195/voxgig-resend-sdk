@@ -1,0 +1,111 @@
+{
+  "existing": {
+    "email": {
+      "EMAIL00": {
+        "attachments": [],
+        "bcc": [],
+        "cc": [],
+        "created_at": "sb7",
+        "from": "sb8",
+        "headers": {},
+        "html": "sba",
+        "id": "EMAIL00",
+        "last_event": "sbc",
+        "object": "sbd",
+        "reply_to": [],
+        "scheduled_at": "sbf",
+        "subject": "sc0",
+        "tags": [],
+        "template": "sc2",
+        "text": "sc3",
+        "to": [],
+        "topic_id": "TOPIC01"
+      },
+      "EMAIL01": {
+        "attachments": [],
+        "bcc": [],
+        "cc": [],
+        "created_at": "s16b",
+        "from": "s16c",
+        "headers": {},
+        "html": "s16e",
+        "id": "EMAIL01",
+        "last_event": "s170",
+        "object": "s171",
+        "reply_to": [],
+        "scheduled_at": "s173",
+        "subject": "s174",
+        "tags": [],
+        "template": "s176",
+        "text": "s177",
+        "to": [],
+        "topic_id": "TOPIC01"
+      },
+      "EMAIL02": {
+        "attachments": [],
+        "bcc": [],
+        "cc": [],
+        "created_at": "s21f",
+        "from": "s220",
+        "headers": {},
+        "html": "s222",
+        "id": "EMAIL02",
+        "last_event": "s224",
+        "object": "s225",
+        "reply_to": [],
+        "scheduled_at": "s227",
+        "subject": "s228",
+        "tags": [],
+        "template": "s22a",
+        "text": "s22b",
+        "to": [],
+        "topic_id": "TOPIC01"
+      }
+    }
+  },
+  "new": {
+    "email": {
+      "email_ref01": {
+        "attachments": [],
+        "bcc": [],
+        "cc": [],
+        "created_at": "s2d3",
+        "from": "s2d4",
+        "headers": {},
+        "html": "s2d6",
+        "last_event": "s2d8",
+        "object": "s2d9",
+        "reply_to": [],
+        "scheduled_at": "s2db",
+        "subject": "s2dc",
+        "tags": [],
+        "template": "s2de",
+        "text": "s2df",
+        "to": [],
+        "topic_id": "TOPIC01"
+      }
+    }
+  },
+  "requests": {
+    "POST /emails/{email_id}/cancel": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /emails": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /emails": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /emails/{email_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}
